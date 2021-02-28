@@ -1,0 +1,47 @@
+# 服务器端口
+server:
+  port: 8080
+
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+      username: elastic
+      password: elastic
+
+  datasource:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    #    url: jdbc:h2:mem:h2test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:test
+    driverClassName: org.h2.Driver
+    platform: h2
+    username: sa
+    password:
+    # 运行过一次后，如果不想清空数据库就注释掉下面这行
+  #    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      # localhost:8080/h2-console
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
