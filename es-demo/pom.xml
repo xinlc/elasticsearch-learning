@@ -22,6 +22,9 @@
 		<pagehelper-starter.version>1.3.0</pagehelper-starter.version>
 		<hutool.version>5.4.0</hutool.version>
 		<mybatis.version>3.5.5</mybatis.version>
+
+		<!-- 自定义 spring-boot-dependencies ES 版本，保证跟服务端版本一致-->
+		<elasticsearch.version>7.10.0</elasticsearch.version>
 	</properties>
 	<dependencies>
 		<dependency>
