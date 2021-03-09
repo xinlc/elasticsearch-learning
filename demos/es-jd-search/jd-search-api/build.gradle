@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.jd'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenLocal() //直接使用本地maven仓库
+    maven {    // 镜像源采用阿里云，加速依赖下载
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    mavenCentral()   // 使用中央仓库
+}
+
+dependencies {
+    // Web相关依赖
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // ElasticSearch相关依赖
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    // 分页插件
+    implementation 'com.github.pagehelper:pagehelper:5.1.2'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}

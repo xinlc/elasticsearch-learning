@@ -1,0 +1,8 @@
+server:
+  port: 9000   # 项目端口号配置
+
+
+spring:
+  elasticsearch:  # ElasticSearch配置
+    rest:
+      uris: http://127.0.0.1:9200
