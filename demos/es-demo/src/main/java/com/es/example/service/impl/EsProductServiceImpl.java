@@ -228,6 +228,7 @@ public class EsProductServiceImpl implements EsProductService {
 	@Override
 	public EsProductRelatedInfo searchRelatedInfo(String keyword) {
 		NativeSearchQueryBuilder builder = new NativeSearchQueryBuilder();
+
 		//搜索条件
 		if (StringUtils.isEmpty(keyword)) {
 			builder.withQuery(QueryBuilders.matchAllQuery());
